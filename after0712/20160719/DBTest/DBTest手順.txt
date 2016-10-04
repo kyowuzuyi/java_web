@@ -1,0 +1,35 @@
+■DBの準備
+
+mysql -u root
+
+①MySQLにデータベース「BBS」を作成する
+CREATE DATABASE BBS;
+
+②データベース「BBS」にテーブル「ARTICLE」を作成する。
+CREATE TABLE ARTICLE(
+ID   INTEGER PRIMARY KEY AUTO_INCREMENT,
+NAME VARCHAR(100) NOT NULL,
+TEXT VARCHAR(255) NOT NULL
+);
+
+③テーブル「ARTICLE」にレコードを追加する。
+INSERT INTO ARTICLE(NAME,TEXT) VALUES('北村','こんにちは');
+
+
+
+■ソースコードの準備
+
+exapmleプロジェクトにて、
+DBTest.java	を	src/servlet配下に配置
+Article.java	を	src/model配下に配置
+mysql-connector-java-5.1.38-bin.jar	を	WebContent/WEB-INF/lib配下に配置
+
+DBTest.javaの以下行にて、MySQLのユーザ名、パスワードを正しく設定
+29    private final String DB_USER = "root";
+30    private final String DB_PASS = "";
+
+
+
+■DB接続確認
+
+ブラウザから　http://localhost:8080/example/DBTest　にアクセス
